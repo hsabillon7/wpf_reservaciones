@@ -42,10 +42,12 @@ namespace _26___Reservaciones
                 {
                     // Verificar que la contraseña ingresada es igual a la contraseña
                     // almacenada en la base de datos
-                    if (elUsuario.Password == pwbPassword.Password)
+                    if (elUsuario.Password == pwbPassword.Password && elUsuario.Estado)
                     {
                         MessageBox.Show("¡Bienvenido al sistema de reservaciones!");
                     }
+                    else if (!elUsuario.Estado)
+                        MessageBox.Show("Tu usuario se encuentra innactivo. Favor comunicarte con el personal de IT");
                     else
                         MessageBox.Show("El usuario o la contraseña no es correcta. Favor verificar.");
                 }

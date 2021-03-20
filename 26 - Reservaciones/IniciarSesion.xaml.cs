@@ -44,7 +44,10 @@ namespace _26___Reservaciones
                     // almacenada en la base de datos
                     if (elUsuario.Password == pwbPassword.Password && elUsuario.Estado)
                     {
-                        MessageBox.Show("¡Bienvenido al sistema de reservaciones!");
+                        // Mostrar el formulario de menú principal
+                        MenuPrincipal menu = new MenuPrincipal(elUsuario.NombreCompleto);
+                        menu.Show();
+                        Close();
                     }
                     else if (!elUsuario.Estado)
                         MessageBox.Show("Tu usuario se encuentra innactivo. Favor comunicarte con el personal de IT");

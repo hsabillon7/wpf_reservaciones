@@ -55,8 +55,15 @@ namespace _26___Reservaciones
                 string query = @"SELECT * FROM Usuarios.Usuario
                                  WHERE username = @username";
 
+
+                // Establecer la conexión
+                sqlConnection.Open();
+
                 // Crear el comando SQL
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                // Establecer los valores de los parámetros
+                sqlCommand.Parameters.AddWithValue("@username", username);
 
                 using (SqlDataReader rdr = sqlCommand.ExecuteReader())
                 {

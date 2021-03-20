@@ -49,3 +49,43 @@ CREATE TABLE Usuarios.Usuario (
 		PRIMARY KEY CLUSTERED (id)
 )
 GO
+
+-- Restricciones de las tablas
+
+-- El estado de las habitaciones es: ocupada, disponible, mantenimiento y fuera de servicio.
+ALTER TABLE Habitaciones.Habitacion WITH CHECK
+	ADD CONSTRAINT CHK_Habitaciones_Habitacion$EstadoHabitaciones
+	CHECK (estado IN('OCUPADA', 'DISPONIBLE', 'MANTENIMIENTO', 'FUERADESERVICIO'))
+GO
+
+-- Llave foránea para las habitaciones
+ALTER TABLE Habitaciones.Reservacion
+	ADD CONSTRAINT FK_Habitaciones_Reservacion$TieneUna$Habitaciones_Habitaciones
+	FOREIGN KEY (habitacion) REFERENCES Habitaciones.Habitacion(id)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
+GO
+
+-- La fecha de ingreso no puede ser menor que la fecha actual
+ALTER TABLE Habitaciones.Reservacion WITH CHECK
+	ADD CONSTRAINT CHK_Habitaciones_Habitacion$VerificarFechaIngreso
+	CHECK (fechaIngreso >= GETDATE())
+GO
+
+-- La fecha de salida no puede ser menor o igual a la fecha de ingreso
+ALTER TABLE Habitaciones.Reservacion WITH CHECK
+	ADD CONSTRAINT CHK_Habitaciones_Habitacion$VerificarFechaSalida
+	CHECK (fechaSalida > fechaIngreso)
+GO
+
+-- No puede existir nombres de usuarios repetidos
+ALTER TABLE Usuarios.Usuario
+	ADD CONSTRAINT AK_Usuarios_Usuario_username
+	UNIQUE NONCLUSTERED (username)
+GO
+
+-- La contraseña debe contener al menos 6 caracteres
+ALTER TABLE Usuarios.Usuario WITH CHECK
+	ADD CONSTRAINT CHK_Usuarios_Usuario$VerificarLongitudContraseña
+	CHECK (LEN(password) >= 6)
+GO

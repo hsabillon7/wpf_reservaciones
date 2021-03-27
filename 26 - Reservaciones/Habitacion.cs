@@ -15,7 +15,7 @@ namespace _26___Reservaciones
         Ocupada = 'O',
         Disponible = 'D',
         Mantenimiento = 'M',
-        FueraServicio = 'F'
+        FueraDeServicio = 'F'
     }
 
     class Habitacion
@@ -59,7 +59,7 @@ namespace _26___Reservaciones
                     return "DISPONIBLE";
                 case EstadosHabitacion.Mantenimiento:
                     return "MANTENIMIENTO";
-                case EstadosHabitacion.FueraServicio:
+                case EstadosHabitacion.FueraDeServicio:
                     return "FUERADESERVICIO";
                 default:
                     return "DISPONIBLE";

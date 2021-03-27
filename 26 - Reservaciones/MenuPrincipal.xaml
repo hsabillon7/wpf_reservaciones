@@ -21,7 +21,7 @@
         <Label Content="Bienvenido al sistema de reservaciones" FontSize="30" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <Label Name="lbUsuario" Content="" Grid.Column="1" Grid.Row="1" FontSize="15" HorizontalAlignment="Right" />
 
-        <Button Name="btnHabitaciones" Content="Habitaciones" Grid.Column="0" Grid.Row="2" Height="100" Width="200" FontSize="20" />
+        <Button Name="btnHabitaciones" Content="Habitaciones" Grid.Column="0" Grid.Row="2" Height="100" Width="200" FontSize="20" Click="btnHabitaciones_Click" />
         <Button Name="btnReservaciones" Content="Reservaciones" Grid.Column="1" Grid.Row="2" Height="100" Width="200" FontSize="20" />
         <Button Name="btnSalir" Content="Salir" Grid.ColumnSpan="2" Grid.Row="3" Height="100" Width="200" FontSize="20" Click="btnSalir_Click" />
     </Grid>

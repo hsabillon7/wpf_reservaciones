@@ -32,12 +32,12 @@
         <ComboBox Name="cmbEstado" Grid.Row="3" Grid.Column="1" FontSize="15" Margin="10" />
         <ListBox Name="lbHabitaciones" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="10" />
 
-        <Button Name="btnAceptar" Content="Aceptar" Grid.Row="4" Grid.Column="1" FontSize="15" Width="150" Height="75" />
-        <Button Name="btnCancelar" Content="Cancelar" Grid.Row="4" Grid.Column="2" FontSize="15" Width="150" Height="75" />
+        <Button Name="btnAceptar" Content="Aceptar" Grid.Row="4" Grid.Column="1" FontSize="15" Width="150" Height="75" Click="btnAceptar_Click" />
+        <Button Name="btnCancelar" Content="Cancelar" Grid.Row="4" Grid.Column="2" FontSize="15" Width="150" Height="75" Click="btnCancelar_Click" />
 
         <Button Name="btnAgregar" Content="Agregar" Grid.Row="4" FontSize="15" Width="150" Height="75" Click="btnAgregar_Click" />
-        <Button Name="btnModificar" Content="Modificar" Grid.Row="4" Grid.Column="1" FontSize="15" Width="150" Height="75" />
+        <Button Name="btnModificar" Content="Modificar" Grid.Row="4" Grid.Column="1" FontSize="15" Width="150" Height="75" Click="btnModificar_Click" />
         <Button Name="btnEliminar" Content="Eliminar" Grid.Row="4" Grid.Column="2" FontSize="15" Width="150" Height="75" />
-        <Button Name="btnRegresar" Content="Regresar" Grid.Row="4" Grid.Column="3" FontSize="15" Width="150" Height="75" />
+        <Button Name="btnRegresar" Content="Regresar" Grid.Row="4" Grid.Column="3" FontSize="15" Width="150" Height="75" Click="btnRegresar_Click" />
     </Grid>
 </Window>

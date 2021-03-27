@@ -44,6 +44,11 @@ namespace _26___Reservaciones
         }
 
         // Métodos
+        /// <summary>
+        /// Retorna el estado de la habitación desde el enum de estados
+        /// </summary>
+        /// <param name="estado">El valor dentro del enum</param>
+        /// <returns>Estado válido dentro de la base de datos</returns>
         private string ObtenerEstado(EstadosHabitacion estado)
         {
             switch (estado)
@@ -61,6 +66,10 @@ namespace _26___Reservaciones
             }
         }
 
+        /// <summary>
+        /// Inserta una habitación.
+        /// </summary>
+        /// <param name="habitacion">La información de la habitación</param>
         public void CrearHabitacion(Habitacion habitacion)
         {
             try

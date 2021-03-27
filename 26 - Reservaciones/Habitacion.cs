@@ -103,6 +103,10 @@ namespace _26___Reservaciones
             }
         }
 
+        /// <summary>
+        /// Muestra todas las habitaciones
+        /// </summary>
+        /// <returns>Un listado de habitaciones</returns>
         public List<Habitacion> MostrarHabitaciones()
         {
             // Inicializar una lista vacía de habitaciones
@@ -140,6 +144,11 @@ namespace _26___Reservaciones
             }
         }
 
+        /// <summary>
+        /// Obtiene una habitación por su id
+        /// </summary>
+        /// <param name="id">El id de la habitación</param>
+        /// <returns>Los datos de la habitación</returns>
         public Habitacion BuscarHabitacion(int id)
         {
             Habitacion laHabitacion = new Habitacion();
@@ -183,6 +192,10 @@ namespace _26___Reservaciones
             }
         }
 
+        /// <summary>
+        /// Modifica los datos de una habitación
+        /// </summary>
+        /// <param name="habitacion">El id de la habitación</param>
         public void ModificarHabitacion(Habitacion habitacion)
         {
             try
@@ -205,6 +218,41 @@ namespace _26___Reservaciones
                 sqlCommand.Parameters.AddWithValue("@estado", ObtenerEstado(habitacion.Estado));
 
                 // Ejecutar el comando de actualización
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                // Cerrar la conexión
+                sqlConnection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Elimina una habitación
+        /// </summary>
+        /// <param name="id">El id de la habitación</param>
+        public void EliminarHabitacion(int id)
+        {
+            try
+            {
+                // Query de eliminación
+                string query = @"DELETE FROM Habitaciones.Habitacion
+                                 WHERE id = @id";
+
+                // Establecer la conexión
+                sqlConnection.Open();
+
+                // Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                // Establecer el valor del parámetro
+                sqlCommand.Parameters.AddWithValue("@id", id);
+
+                // Ejecutar el comando de eliminación
                 sqlCommand.ExecuteNonQuery();
             }
             catch (Exception e)

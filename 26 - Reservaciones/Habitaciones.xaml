@@ -37,7 +37,7 @@
 
         <Button Name="btnAgregar" Content="Agregar" Grid.Row="4" FontSize="15" Width="150" Height="75" Click="btnAgregar_Click" />
         <Button Name="btnModificar" Content="Modificar" Grid.Row="4" Grid.Column="1" FontSize="15" Width="150" Height="75" Click="btnModificar_Click" />
-        <Button Name="btnEliminar" Content="Eliminar" Grid.Row="4" Grid.Column="2" FontSize="15" Width="150" Height="75" />
+        <Button Name="btnEliminar" Content="Eliminar" Grid.Row="4" Grid.Column="2" FontSize="15" Width="150" Height="75" Click="btnEliminar_Click" />
         <Button Name="btnRegresar" Content="Regresar" Grid.Row="4" Grid.Column="3" FontSize="15" Width="150" Height="75" Click="btnRegresar_Click" />
     </Grid>
 </Window>

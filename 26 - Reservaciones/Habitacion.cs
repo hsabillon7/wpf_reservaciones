@@ -42,5 +42,56 @@ namespace _26___Reservaciones
             Numero = numero;
             Estado = estado;
         }
+
+        // Métodos
+        private string ObtenerEstado(EstadosHabitacion estado)
+        {
+            switch (estado)
+            {
+                case EstadosHabitacion.Ocupada:
+                    return "OCUPADA";
+                case EstadosHabitacion.Disponible:
+                    return "DISPONIBLE";
+                case EstadosHabitacion.Mantenimiento:
+                    return "MANTENIMIENTO";
+                case EstadosHabitacion.FueraServicio:
+                    return "FUERADESERVICIO";
+                default:
+                    return "DISPONIBLE";
+            }
+        }
+
+        public void CrearHabitacion(Habitacion habitacion)
+        {
+            try
+            {
+                // Query de inserción
+                string query = @"INSERT INTO Habitaciones.Habitacion (descripcion, numero, estado)
+                                 VALUES (@descripcion, @numero, @estado)";
+
+                // Establecer la conexión
+                sqlConnection.Open();
+
+                // Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                // Establecer los valores de los parámetros
+                sqlCommand.Parameters.AddWithValue("@descripcion", habitacion.Descripcion);
+                sqlCommand.Parameters.AddWithValue("@numero", habitacion.Numero);
+                sqlCommand.Parameters.AddWithValue("@estado", ObtenerEstado(habitacion.Estado));
+
+                // Ejecutar el comando de inserción
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                // Cerrar la conexión
+                sqlConnection.Close();
+            }
+        }
     }
 }
